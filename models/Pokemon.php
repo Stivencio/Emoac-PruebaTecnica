@@ -13,6 +13,7 @@ use Yii;
  */
 class Pokemon extends \yii\db\ActiveRecord
 {
+    public $file;
     /**
      * {@inheritdoc}
      */
@@ -27,9 +28,12 @@ class Pokemon extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'image'], 'required'],
+            [['name'], 'required'],
             [['name'], 'string', 'max' => 255],
-            [['image'], 'string', 'max' => 2500],
+            // [['image'], 'string', 'max' => 2500],
+
+            //Se crea un campo 'file' para que se pueda interpretar
+            [['file'], 'file', 'extensions' => 'jpg,png'],
         ];
     }
 
@@ -41,7 +45,7 @@ class Pokemon extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
-            'image' => 'Image',
+            'file' => 'Image',
         ];
     }
 }

@@ -1,14 +1,14 @@
 <?php
 
-use app\models\Pokemon;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
+use \app\models\Pokemon;
 
-/** @var yii\web\View $this */
-/** @var app\models\PokemonSearch $searchModel */
-/** @var yii\data\ActiveDataProvider $dataProvider */
+/* @var $this yii\web\View */
+/* @var $searchModel app\models\PokemonSearch */
+/* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Pokemons';
 $this->params['breadcrumbs'][] = $this->title;
@@ -31,7 +31,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'name',
-            'image',
+            [
+            'format'=>'html',
+            'value'=>function($data){return Html::img($data->image,['width'=>'60px']);},
+            ],
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Pokemon $model, $key, $index, $column) {
