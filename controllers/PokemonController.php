@@ -8,6 +8,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use yii\data\Pagination;
 
 /**
  * PokemonController implements the CRUD actions for Pokemon model.
@@ -112,7 +113,7 @@ class PokemonController extends Controller
     {
 
         $model = $this->findModel($id);
-        
+
         //Esto es para eliminar las imagenes en la carpeta upload
         if (file_exists($model->image)) {
             unlink($model->image);
@@ -121,6 +122,22 @@ class PokemonController extends Controller
         $model->delete();
 
         return $this->redirect(['index']);
+    }
+
+    //Vista de detalles
+    public function actionDetails()
+    {
+        $model = Pokemon::find();
+
+        $pagination = new Pagination([
+            'defaultPageSize' => 2,
+            'totalCount' => $model->count()
+        ]);
+
+        //ordenar pokemones por nombre
+        $pokemons=$model->orderBy('name')->offset($pagination->offset)->limit($pagination->limit)->all();
+
+        return $this->render('details',['pokemons'=>$pokemons,'pagination'=>$pagination]);
     }
 
     /**
