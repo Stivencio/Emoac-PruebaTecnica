@@ -110,7 +110,15 @@ class PokemonController extends Controller
     //Función para eliminar
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+
+        $model = $this->findModel($id);
+        
+        //Esto es para eliminar las imagenes en la carpeta upload
+        if (file_exists($model->image)) {
+            unlink($model->image);
+        }
+
+        $model->delete();
 
         return $this->redirect(['index']);
     }
