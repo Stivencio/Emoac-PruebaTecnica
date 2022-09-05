@@ -7,6 +7,7 @@ use app\models\PokemonSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * PokemonController implements the CRUD actions for Pokemon model.
@@ -65,6 +66,8 @@ class PokemonController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
+
+     //Función para crear
     public function actionCreate()
     {
         $model = new Pokemon();
@@ -89,6 +92,8 @@ class PokemonController extends Controller
      * @return string|\yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
+
+    //Función para actualizar
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
@@ -109,6 +114,8 @@ class PokemonController extends Controller
      * @return \yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
+
+    //Función para eliminar
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
@@ -130,5 +137,42 @@ class PokemonController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    //Función para adjuntar la imagen subida a la carpeta app/web/uploads
+    protected function uploadImage(Pokemon $model)
+    {
+        if ($this->request->isPost) {
+            if ($model->load($this->request->post())) {
+
+                //Subir imagen con UploadedFiledel modelo utilizando 'file'
+                $model->file = UploadedFile::getInstance($model, 'file');
+
+                if ($model->validate()) {
+                    if ($model->file) {
+
+                        //Esto es para eliminar las imagenes en la carpeta upload
+                        if (file_exists($model->image)) {
+                            unlink($model->image);
+                        }
+
+                        //Validar imagenes con el mismo nombre, agregandole el campo "time" para diferenciarlas y no sobreescribir.
+                        //formato: uploads/tiempo_nombreDelArchivo.jpg
+                        $filePath = 'uploads/' . time() . "_" . $model->file->baseName . "." . $model->file->extension;
+
+                        //Subir la imagen a la carpeta uploads
+                        if ($model->file->saveAs($filePath)) {
+                            $model->image = $filePath;
+                        }
+                    }
+                }
+
+                if ($model->save(false)) {
+                    return $this->redirect(['index']);
+                }
+            }
+        } else {
+            $model->loadDefaultValues();
+        }
     }
 }
