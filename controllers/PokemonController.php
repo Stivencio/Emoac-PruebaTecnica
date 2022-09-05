@@ -67,18 +67,12 @@ class PokemonController extends Controller
      * @return string|\yii\web\Response
      */
 
-     //Función para crear
+    //Función para crear
     public function actionCreate()
     {
         $model = new Pokemon();
 
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
-        } else {
-            $model->loadDefaultValues();
-        }
+        $this->uploadImage($model);
 
         return $this->render('create', [
             'model' => $model,
@@ -98,9 +92,7 @@ class PokemonController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
+        $this->uploadImage($model);
 
         return $this->render('update', [
             'model' => $model,
