@@ -57,15 +57,15 @@ h1 {
   justify-content: center;
 }
 
-.fab {
-  font-size: 1.5rem;
-  color: darkgray;
-  transition: transform 0.5s;
+.fas {
+    font-size: 1.5rem;
+    color: darkgray;
+    transition: transform .5s;
 }
 
-.fab:hover {
-  color: black;
-  transform: scale(1.1);
+.fas:hover {
+    color: black;
+    transform: scale(1.1);
 }
 
 .card h2 {

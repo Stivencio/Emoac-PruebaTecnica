@@ -23,9 +23,9 @@ use yii\widgets\LinkPager;
                                 <div class="box">
                                     <div>
                                         <ul class="list-inline">
-                                            <li class="list-inline-item" type="button"><i class="fab fa-github"></i></li>
-                                            <li class="list-inline-item" type="button"><i class="fab fa-linkedin-in"></i></li>
-                                            <li class="list-inline-item" type="button"><i class="fab fa-instagram"></i></li>
+                                            <li class="list-inline-item" type="button"><i class="fas fa-eye"></i></li>
+                                            <li class="list-inline-item" type="button"><i class="fas fa-pencil-alt"></i></li>
+                                            <li class="list-inline-item" type="button"><i class="fas fa-trash"></i></li>
                                         </ul>
                                     </div>
                                 </div>
