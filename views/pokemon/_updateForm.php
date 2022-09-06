@@ -13,7 +13,7 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
 
-    <h2>Create Pokemon:</h2>
+    <h2>Update Pokemon:</h2>
 
     <!-- Input para ingresar nombre -->
     <div class="col-sm-12">
@@ -24,6 +24,10 @@ use yii\widgets\ActiveForm;
     <div class="col-sm-12">
         <?= $form->field($model, 'file')->fileInput(['class' => 'form-control', 'type' => 'file'])->label('Image :', ['class' => 'label-custom']); ?>
     </div>
+
+    <!-- Vista previa de la imagen subida -->
+    <?= Html::img($model->image, ['width' => '60px']); ?>
+
 
     <!-- Boton para guardar -->
     <div class="form-group">

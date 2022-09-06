@@ -185,7 +185,7 @@ class PokemonController extends Controller
                 }
 
                 if ($model->save(false)) {
-                    return $this->redirect(['index']);
+                    return $this->redirect(['details']);
                 }
             }
         } else {
