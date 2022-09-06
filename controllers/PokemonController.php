@@ -130,7 +130,7 @@ class PokemonController extends Controller
         $model = Pokemon::find();
 
         $pagination = new Pagination([
-            'defaultPageSize' => 2,
+            'defaultPageSize' => 4,
             'totalCount' => $model->count()
         ]);
 
