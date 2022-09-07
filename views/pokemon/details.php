@@ -23,17 +23,7 @@ $this->title = 'HOME';
                             <div class="card-body">
                                 <div class="my-2 text-center">
                                     <h1 class="card-title"><?= Html::encode("{$pokemon->name}") ?></h1>
-                                </div>
-                                <br>
-                                <!-- <div class="box">
-                                    <div>
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item" type="button"><i class="fas fa-eye"></i></li>
-                                            <li class="list-inline-item" type="button"><i class="fas fa-pencil-alt"></i></li>
-                                            <li class="list-inline-item" type="button"><i class="fas fa-trash"></i></li>
-                                        </ul>
-                                    </div>
-                                </div> -->
+                                </div>                                
                             </div>
                         </div>
                     </div>
