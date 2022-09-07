@@ -1,9 +1,34 @@
 version: '2'
 services:
   php:
-    image: yiisoftware/yii2-php:7.4-apache
+    image: yiisoftware/yii2-php:8.1-apache
     volumes:
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
       - ./:/app:delegated
     ports:
       - '8000:80'
+    depends_on:
+      - mysql
+  mysql:
+    container_name: 'pkm_db'
+    image: 'mysql:5.7'
+    ports:
+      - '3306:3306'
+    command: --sql_mode="TRADITIONAL"
+    environment:
+      MYSQL_ROOT_PASSWORD: 'admin'
+      MYSQL_USER: 'admin'
+      MYSQL_PASSWORD: 'admin'
+      MYSQL_DATABASE: 'pkm'
+  phpmyadmin:
+    container_name: 'pkm-myadmin'
+    image: 'phpmyadmin/phpmyadmin'
+    depends_on:
+      - mysql
+    restart: always
+    ports:
+      - '8081:80'
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
