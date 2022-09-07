@@ -39,8 +39,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav justify-content-end'],
         'items' => [
-            ['label' => 'CRUD', 'url' => ['/pokemon/index']],           
-            ['label' => 'Details', 'url' => ['/pokemon/details']]
+            ['label' => 'HOME', 'url' => ['/pokemon/details']],
+            ['label' => 'CRUD', 'url' => ['/pokemon/index']],       
         ]
     ]);
     NavBar::end();

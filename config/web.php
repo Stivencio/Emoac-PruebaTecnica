@@ -53,7 +53,7 @@ $config = [
         */
     ],
     'params' => $params,
-    'defaultRoute' => 'pokemon/index'
+    'defaultRoute' => 'pokemon/details'
 ];
 
 if (YII_ENV_DEV) {

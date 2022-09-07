@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /** @var yii\web\View $this */
 /** @var app\models\Pokemon $model */
 
-$this->title = $model->name;
+$this->title = 'Pokemons';
 $this->params['breadcrumbs'][] = ['label' => 'Pokemons', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
@@ -31,7 +31,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
-            'image',
+            [
+                'attribute'=>'image',
+                'value'=>$model->image,
+                'format' => ['image',['width'=>'200','height'=>'200']],
+            ],
         ],
     ]) ?>
 

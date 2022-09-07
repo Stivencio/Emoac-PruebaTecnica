@@ -46,7 +46,7 @@ class PokemonSearch extends Pokemon
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'pagination'=>['pageSize'=>3]
+            'pagination'=>['pageSize'=>6]
         ]);
 
         $this->load($params);
