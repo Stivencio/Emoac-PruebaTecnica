@@ -28,7 +28,7 @@ class Pokemon extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name'], 'required', 'message' => 'MENSAJE DE ERROR'],
+            [['name'], 'required', 'message' => 'Empty field'],
             [['name'], 'string', 'max' => 255],
             // [['image'], 'string', 'max' => 2500],
 
