@@ -1,6 +1,8 @@
 <?php
 
 return [
+
+    //Docker
     'class' => 'yii\db\Connection',
     'dsn' => 'mysql:host=mysql:3306;dbname=pkm',
     'username' => 'admin',

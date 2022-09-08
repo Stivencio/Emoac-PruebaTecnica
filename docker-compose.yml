@@ -16,12 +16,12 @@ services:
       - '3306:3306'
     command: --sql_mode="TRADITIONAL"
     environment:
-      MYSQL_ROOT_PASSWORD: 'admin'
+      MYSQL_DATABASE: 'pkm'
       MYSQL_USER: 'admin'
       MYSQL_PASSWORD: 'admin'
-      MYSQL_DATABASE: 'pkm'
+      MYSQL_ROOT_PASSWORD: 'admin'
   phpmyadmin:
-    container_name: 'pkm-myadmin'
+    container_name: 'pkm_myadmin'
     image: 'phpmyadmin/phpmyadmin'
     depends_on:
       - mysql

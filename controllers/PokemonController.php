@@ -167,12 +167,7 @@ class PokemonController extends Controller
 
                 if ($model->validate()) {
                     if ($model->file) {
-
-                        //Esto es para eliminar las imagenes en la carpeta upload
-                        if (file_exists($model->image)) {
-                            unlink($model->image);
-                        }
-
+                        
                         //Validar imagenes con el mismo nombre, agregandole el campo "time" para diferenciarlas y no sobreescribir.
                         //formato: uploads/tiempo_nombreDelArchivo.jpg
                         $filePath = 'uploads/' . time() . "_" . $model->file->baseName . "." . $model->file->extension;
