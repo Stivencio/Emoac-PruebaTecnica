@@ -23,5 +23,5 @@ $ docker-compose up -d
 ```
 ## Cargar Base de Datos
 ```sh
-$ docker exec -it yii2appdocker_web_1 bash
+$ docker exec -i emoac-pruebatecnica_php_1 php yii migrate/up
 ```
