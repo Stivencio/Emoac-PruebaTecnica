@@ -1,27 +1,33 @@
 <p align="center">
     <h1 align="center">Prueba Técnica Emoac</h1>
-    <br>
 </p>
 
-Ejecutar con Docker
+Instalaciones previas
 -------------------
-
-### Instalaciones previas:
 
 - [Composer](https://getcomposer.org/)
 
-- [Docker](https://www.docker.com/products/docker-desktop/)
+- [Docker version 20.10.17, build 100c701](https://www.docker.com/products/docker-desktop/)
+
+
+### Clonar repositorio
+```sh
+git clone https://github.com/Stivencio/Emoac-PruebaTecnica.git
+```
 
 
 ## Ejecutar con Docker
-Docker version 20.10.17, build 100c701
 
 
-## Crear e iniciar contenedores
+### Instalar dependencias de composer
+```sh
+$ composer install
+```
+### Crear e iniciar contenedores
 ```sh
 $ docker-compose up -d
 ```
-## Cargar Base de Datos
+### Cargar Base de Datos
 ```sh
 $ docker exec -i emoac-pruebatecnica_php_1 php yii migrate/up
 ```
