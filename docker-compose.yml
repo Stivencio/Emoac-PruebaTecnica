@@ -1,6 +1,7 @@
 version: '2'
 services:
   php:
+    container_name: 'PT_Emoac_Esteban'
     image: yiisoftware/yii2-php:8.1-apache
     volumes:
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
@@ -25,7 +26,6 @@ services:
     image: 'phpmyadmin/phpmyadmin'
     depends_on:
       - mysql
-    restart: always
     ports:
       - '8081:80'
     environment:
