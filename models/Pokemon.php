@@ -29,7 +29,7 @@ class Pokemon extends \yii\db\ActiveRecord
     {
         return [
             [['name'], 'required', 'message' => 'Empty field'],
-            [['name'], 'string', 'max' => 255],
+            [['name'], 'string', 'max' => 15],
 
             //Se crea un campo 'file' para que se pueda interpretar
             [['file'], 'file', 'extensions' => 'jpg,png'],
