@@ -10,8 +10,8 @@ docker-compose run php bash -c "composer install"
 # Asignar permisos al directorio de assets
 docker-compose run php bash -c "chmod -R 777 /app"
 
-# Pausa de 10 segundos para permitir que el contenedor de MySQL se inicie completamente
+# Pausa de 5 segundos para permitir que el contenedor de MySQL se inicie completamente
 sleep 5
 
 # Comando para ejecutar las migraciones de Yii
-docker-compose exec php php /app/yii migrate/up
+docker-compose run php bash -c "php /app/yii migrate/up"
