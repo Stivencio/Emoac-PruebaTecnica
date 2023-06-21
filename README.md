@@ -18,5 +18,5 @@ git clone https://github.com/Stivencio/Emoac-PruebaTecnica.git
 
 
 ```sh
-$  sh start.sh
+$  ./start.sh
 ```
